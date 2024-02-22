@@ -1,0 +1,60 @@
+// Addbooks component styles
+
+.max-w-md {
+  max-width: 28rem; // Adjust max-width as needed
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-8 {
+  margin-top: 2rem; // Adjust margin-top as needed
+}
+
+.block {
+  display: block;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem; // Adjust margin-bottom as needed
+}
+
+.mb-4 {
+  margin-bottom: 1rem; // Adjust margin-bottom as needed
+}
+
+.border {
+  border: 1px solid #d1d5db; // Adjust border color as needed
+}
+
+.border-gray-300 {
+  border-color: #d1d5db; // Adjust border color as needed
+}
+
+.rounded {
+  border-radius: 0.25rem; // Adjust border-radius as needed
+}
+
+.px-4 {
+  padding-left: 1rem; // Adjust padding-left as needed
+  padding-right: 1rem; // Adjust padding-right as needed
+}
+
+.py-2 {
+  padding-top: 0.5rem; // Adjust padding-top as needed
+  padding-bottom: 0.5rem; // Adjust padding-bottom as needed
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6; // Adjust background color as needed
+}
+
+.text-white {
+  color: #ffffff; // Adjust text color as needed
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: #2563eb; // Adjust hover background color as needed
+}

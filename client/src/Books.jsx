@@ -11,7 +11,9 @@ export const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/book");
+        const res = await axios.get(
+          "https://library-management-1-e7u3.onrender.com/book"
+        );
         let filteredBooks = res.data;
 
         if (search) {

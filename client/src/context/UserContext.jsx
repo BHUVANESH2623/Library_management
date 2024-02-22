@@ -10,7 +10,7 @@ const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/user/profile", {
+      .get("https://library-management-1-e7u3.onrender.com/user/profile", {
         withCredentials: true,
       })
       .then((res) => {

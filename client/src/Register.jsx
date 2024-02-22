@@ -24,7 +24,7 @@ export const Register = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:8080/user/register",
+        "https://library-management-1-e7u3.onrender.com/user/register",
         { name, email, role, password },
         {
           withCredentials: true,

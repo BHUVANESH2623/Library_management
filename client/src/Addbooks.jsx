@@ -21,7 +21,10 @@ export const Addbooks = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/book", formData);
+      const response = await axios.post(
+        "https://library-management-1-e7u3.onrender.com/book",
+        formData
+      );
       console.log(response.data);
       console.log("added successfully");
     } catch (error) {

@@ -14,7 +14,7 @@ import mysql from "mysql2";
 import dotenv from "dotenv";
 dotenv.config();
 
-const database = `mysql://avnadmin:AVNS_zDt2MyQWGSd7K8FX0VF@mysql-26437d1a-projectdev.a.aivencloud.com:20951/defaultdb?ssl-mode=REQUIRED`;
+const database = `mysql://avnadmin:AVNS_zDt2MyQWGSd7K8FX0VF@mysql-26437d1a-projectdev.a.aivencloud.com:20951/librarymanagement`;
 const db = mysql.createConnection(database);
 
 db.connect((err) => {

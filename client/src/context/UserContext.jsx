@@ -6,7 +6,6 @@ const UserContext = createContext({});
 const UserContextProvider = ({ children }) => {
   const [loggeduser, setLoggedUser] = useState(null);
   const [id, setId] = useState(null);
-  // const [toggle,setToggle]=useState(false);
 
   useEffect(() => {
     axios
@@ -18,7 +17,6 @@ const UserContextProvider = ({ children }) => {
         setId(res.data.id);
       });
   }, []);
-  // console.log(loggeduser);
 
   return (
     <div>

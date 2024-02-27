@@ -36,34 +36,52 @@ export const Login = (req, res) => {
   });
 };
 
+// export const Register = (req, res) => {
+//   const q = "SELECT * FROM users WHERE email =? AND role =?";
+//   db.query(q, [req.body?.email, req.body?.role], (err, data) => {
+//     if (err) return res.status(500).json(err);
+//     if (data.length !== 0) {
+//       return res.status(409).json("user already present");
+//     }
+//     const p =
+//       "INSERT INTO users( name, email, role, password) VALUES ( ?, ?, ?, ?)";
+
+//     const value = [
+//       req.body.name,
+//       req.body.email,
+//       req.body.role,
+//       req.body.password,
+//     ];
+
+//     db.query(p, value, (err, data) => {
+//       if (err) return res.status(500).json(err);
+
+//       return res.status(200).json({
+//         message: "User registered successfully",
+//         userId: newUserId,
+//       });
+//     });
+//   });
+// };
+
 export const Register = (req, res) => {
-  const q = "SELECT * FROM users WHERE email =? AND role =?";
-  db.query(q, [req.body?.email, req.body?.role], (err, data) => {
+  const q = "SELECT * FROM users WHERE name=? AND role=?";
+  db.query(q, [req.body?.username, req.body?.role], (err, data) => {
     if (err) return res.status(500).json(err);
     if (data.length !== 0) {
       return res.status(409).json("user already present");
     }
 
-    // Calculate the new id based on the length of the original table
-    // const newUserId = data.length + 1;
+    const p = "INSERT INTO users(name,email,role,password) VALUES (?)";
 
-    const p =
-      "INSERT INTO users( name, email, role, password) VALUES ( ?, ?, ?, ?)";
+    const salt = bcrypt.genSaltSync(10);
+    const hashpassword = bcrypt.hashSync(req.body.password, salt);
 
-    const value = [
-      req.body.name,
-      req.body.email,
-      req.body.role,
-      req.body.password,
-    ];
+    const value = [req.body.name, req.body.email, req.body.role, hashpassword];
 
-    db.query(p, value, (err, data) => {
+    db.query(p, [value], (err, data) => {
       if (err) return res.status(500).json(err);
-
-      return res.status(200).json({
-        message: "User registered successfully",
-        userId: newUserId,
-      });
+      return res.status(200).json("User registered successfully");
     });
   });
 };

@@ -11,10 +11,9 @@ export const GetBooks = (req, res) => {
 };
 
 export const AddBooks = (req, res) => {
-  const q = "INSERT INTO books(id,title,author,subject,publish) values(?)";
+  const q = "INSERT INTO books(title,author,subject,publish) values(?)";
 
   const v = [
-    req.body.id,
     req.body.title,
     req.body.author,
     req.body.subject,

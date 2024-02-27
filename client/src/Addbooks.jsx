@@ -3,7 +3,6 @@ import axios from "axios";
 import "./addbooks.scss";
 export const Addbooks = () => {
   const [formData, setFormData] = useState({
-    id: 0,
     title: "",
     author: "",
     subject: "",
@@ -34,7 +33,7 @@ export const Addbooks = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8">
-      <label htmlFor="id" className="block mb-2">
+      {/* <label htmlFor="id" className="block mb-2">
         Id
       </label>
       <input
@@ -44,7 +43,7 @@ export const Addbooks = () => {
         value={formData.id}
         onChange={handleChange}
         className="block w-full border border-gray-300 rounded px-4 py-2 mb-4"
-      />
+      /> */}
       <label htmlFor="title" className="block mb-2">
         Title
       </label>

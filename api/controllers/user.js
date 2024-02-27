@@ -11,12 +11,12 @@ export const Login = (req, res) => {
       return res.status(409).json("User not found");
     }
 
-    // const checkPassword = bcrypt.compareSync(
-    //   req.body.password,
-    //   data[0].password
-    // );
-    // if (!checkPassword)
-    //   return res.status(401).json("Wrong username or password");
+    const checkPassword = bcrypt.compareSync(
+      req.body.password,
+      data[0].password
+    );
+    if (!checkPassword)
+      return res.status(401).json("Wrong username or password");
 
     if (req.body.password !== data[0].password) {
       return res.status(401).json("Wrong username or password");
@@ -39,18 +39,17 @@ export const Register = (req, res) => {
   const q = "SELECT * FROM users";
   db.query(q, [req.body?.email, req.body?.role], (err, data) => {
     if (err) return res.status(500).json(err);
-    // if (data.length !== 0) {
-    //   return res.status(409).json("user already present");
-    // }
+    if (data.length !== 0) {
+      return res.status(409).json("user already present");
+    }
 
     // Calculate the new id based on the length of the original table
-    const newUserId = data.length + 1;
+    // const newUserId = data.length + 1;
 
     const p =
-      "INSERT INTO users(id, name, email, role, password) VALUES (?, ?, ?, ?, ?)";
+      "INSERT INTO users( name, email, role, password) VALUES ( ?, ?, ?, ?)";
 
     const value = [
-      newUserId,
       req.body.name,
       req.body.email,
       req.body.role,

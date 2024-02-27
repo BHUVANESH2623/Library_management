@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      "https://library-management-rouge.vercel.app/",
+      "https://library-management-rouge.vercel.app",
       "https://library-management-frontend-mm5r.onrender.com",
     ],
   })

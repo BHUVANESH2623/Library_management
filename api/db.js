@@ -14,7 +14,7 @@ import mysql from "mysql2";
 import dotenv from "dotenv";
 dotenv.config();
 
-const database = `mysql://root:6GhecEC5BH663Gbh4D3BA--ceE6DDhH-@roundhouse.proxy.rlwy.net:40745/railway`;
+const database = `mysql://avnadmin:AVNS_zDt2MyQWGSd7K8FX0VF@mysql-26437d1a-projectdev.a.aivencloud.com:20951/defaultdb?ssl-mode=REQUIRED`;
 const db = mysql.createConnection(database);
 
 db.connect((err) => {

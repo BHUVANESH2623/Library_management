@@ -15,7 +15,7 @@ export const Register = () => {
   const [name, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [role,setRole]=useState('User');
+  // const [role,setRole]=useState('User');zzz
   const role = "User";
 
   const navigate = useNavigate();

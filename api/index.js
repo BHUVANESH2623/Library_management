@@ -7,13 +7,20 @@ import cors from "cors";
 
 // dotenv.config();
 const app = express();
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Credentials", true);
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+});
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://library-management-rouge.vercel.app/",
+      "https://library-management-frontend-mm5r.onrender.com",
+    ],
+  })
+);
 
 app.use("/user", userRoutes);
 app.use("/book", bookRoutes);

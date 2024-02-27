@@ -22,7 +22,8 @@ export const Addbooks = () => {
     try {
       const response = await axios.post(
         "https://library-management-1-e7u3.onrender.com/book",
-        formData
+        formData,
+        { withCredentials: true }
       );
       console.log(response.data);
       console.log("added successfully");

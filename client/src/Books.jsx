@@ -12,7 +12,8 @@ export const Books = () => {
     const fetchBooks = async () => {
       try {
         const res = await axios.get(
-          "https://library-management-1-e7u3.onrender.com/book"
+          "https://library-management-1-e7u3.onrender.com/book",
+          { withCredentials: true }
         );
         let filteredBooks = res.data;
 

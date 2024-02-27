@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./addbooks.scss";
+import { useNavigate } from "react-router-dom";
 export const Addbooks = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -8,6 +9,8 @@ export const Addbooks = () => {
     subject: "",
     publish: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,13 +23,12 @@ export const Addbooks = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://library-management-1-e7u3.onrender.com/book",
         formData,
         { withCredentials: true }
       );
-      console.log(response.data);
-      console.log("added successfully");
+      navigate("/book");
     } catch (error) {
       console.error("Error adding book:", error);
     }
